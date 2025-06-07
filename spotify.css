@@ -1,960 +1,842 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,500&display=swap');
 
-* {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    background-color: black;
-    color: white;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+*{
+
+    font-family: 'Montserrat', sans-serif;
+
+    margin: 0;
+
+
+
+    background-color: black;
+
+    color: white;
+
+    overflow: hidden;
+
 }
 
-html, body {
-    height: 100%;
-    overflow: hidden; /* Prevent global scrollbar from showing if main has overflow */
+.main{
+
+    display: flex;
+
+    height: 100vh;
+
+    padding: 0.5rem;
+
+
+
 }
 
-.main {
-    display: flex;
-    height: calc(100vh - 72px); /* Full viewport height minus the fixed music player height */
-    padding: 0.5rem;
-    gap: 0.5rem; /* Gap between sidebar and main_content */
-    overflow: hidden; /* Prevent main layout from scrolling, content inside will scroll */
+.main .sidebar{
+
+
+
+    width: 340px;
+
+    background-color: black;
+
+    border-radius: 1rem;
+
 }
 
-.main .sidebar {
-    width: 340px;
-    background-color: #121212; /* Explicit background for sidebar */
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Contains children, allowing library to scroll */
+
+
+.main .main_content{
+
+    flex: 1;
+
+    background-color: #121212;
+
+    border-radius: 1rem;
+
+    overflow: auto;
+
+    margin-left: 1.2rem;
+
 }
 
-.main .main_content {
-    flex: 1;
-    background-color: #121212;
-    border-radius: 1rem;
-    overflow-y: auto; /* Allow vertical scrolling for main content */
-    padding: 0 1rem; /* Add internal padding */
-    padding-bottom: 2rem; /* Extra padding for footer */
+.main .music_player{
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 72px;
+
+   
+
 }
 
-.main .music_player {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
-    background-color: #181818; /* Slightly different dark shade for distinction */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    z-index: 1000;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+.nav_option a{
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 1rem;
+
+    margin-left: 1rem;
+
+
+
+    
+
+
+
 }
 
-.nav_option a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    margin-left: 1rem;
+.nav{
+
+    background-color: #121212;
+
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+
+
+    height: 100px;
+
+    padding: 0.5rem 0.75rem;
+
+    border-radius: 1rem;
+
 }
 
-.nav {
-    background-color: #121212;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0.75rem; /* Increased padding */
-    border-radius: 1rem;
-    margin-bottom: 0.5rem; /* Space below nav */
+
+
+.nav_option{
+
+    line-height: 2.5rem;
+
+    opacity: 0.7;
+
+
+
 }
 
-.nav_option {
-    line-height: 2.5rem;
-    opacity: 0.7;
-    display: flex; /* Use flex for icon and text alignment */
-    align-items: center;
-    padding: 0.25rem 0.75rem;
+.nav_option i{
+
+   font-size: 1.25rem;
+
+;
+
+
+
 }
 
-.nav_option i {
-    font-size: 1.25rem;
-    line-height: 1; /* Adjust line-height for icons */
+
+
+.nav_option:hover{
+
+    opacity: 1;
+
 }
 
-.nav_option:hover {
-    opacity: 1;
+.nav_a,.nav_b {
+
+    padding: 0.25rem 0.75rem;
+
 }
+
+
+
+
 
 /* library */
-.lib {
-    background-color: #121212;
-    border-radius: 1rem;
-    flex-grow: 1;
-    padding: 0.5rem 0.75rem; /* Adjusted padding */
-    overflow-y: auto; /* Allow library content to scroll */
+
+
+
+.lib{
+
+    background-color: #121212;
+
+    border-radius: 1rem;
+
+    height: 100%;
+
+    margin-top: 0.5rem;
+
+    padding: 0.25rem 0.75rem;
+
 }
 
-.options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    margin-bottom: 0.5rem; /* Space below options */
+.options{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
 }
 
-.icons {
-    display: flex;
-    align-items: center;
+.icons{
+
+    display: flex;
+
+
+
 }
 
-.lib_options {
-    margin-left: 0.8rem;
-    display: flex;
-    align-items: center;
-    opacity: 0.7;
-}
-.lib_options:hover {
-    opacity: 1;
+ .lib_options{
+
+    margin-left: 0.8rem;
+
+ }
+
+.lib_options img{
+
+    width: 1.25rem;
+
+    height: 1.25rem;
+
 }
 
-.lib_options img {
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 1rem; /* Space between image and text */
+
+
+.icons i{
+
+    font-size: 1.2rem;
+
+    opacity: 0.7;
+
+    margin: 1rem;
+
 }
 
-.icons i {
-    font-size: 1.2rem;
-    opacity: 0.7;
-    margin-left: 1rem; /* Only left margin for better control */
-    cursor: pointer;
+.icons i:hover{
+
+    opacity: 1;
+
+    cursor: pointer;
+
 }
-.icons i:hover {
-    opacity: 1;
-}
+
+
 
 /* boxes */
-.lib_box {
-    margin-bottom: 0.75rem; /* Space between library boxes */
-    background-color: #121212; /* Ensure consistent background */
+
+
+
+.boxes{
+
+    background-color: #242424;
+
+    height: 10.6rem;
+
+    width: 17.3rem;
+
+    padding: 1rem 1rem;
+
+    margin: 0.5rem;
+
+    margin-right: 0.5rem;
+
+    border-radius: 1rem 1rem 1rem 1rem;
+
 }
 
-.boxes {
-    background-color: #242424;
-    padding: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    height: auto; /* Let content dictate height */
-    width: 100%; /* Take full width of parent */
+.boxes p{
+
+    margin-top: 1.5rem;
+
+    margin-bottom: 1.5rem;
+
 }
 
-.boxes p {
-    margin: 0.25rem 0; /* Reduced margin */
-    background-color: #242424;
+
+
+.p1{
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    background-color: #242424;
+
 }
 
-.p1 {
-    font-size: 0.95rem; /* Slightly smaller font */
-    font-weight: 600;
+.p2{
+
+    font-size: 0.75rem;
+
+    opacity: 0.9;
+
+    background-color: #242424;
+
 }
 
-.p2 {
-    font-size: 0.7rem; /* Slightly smaller font */
-    opacity: 0.8;
+.badge{
+
+    background-color: #ffff;
+
+    color: black;
+
+    border-radius: 100px;
+
+    padding: 0.25rem 1rem;
+
+    font-weight: 700;
+
+    margin-top: 0.5rem;
+
+    height: 2rem;
+
+    width: fit-content;
+
+    border: none;
+
+
+
 }
 
-.badge {
-    background-color: #ffff;
-    color: black;
-    border-radius: 100px;
-    padding: 0.5rem 1rem; /* Increased padding */
-    font-weight: 700;
-    margin-top: 0.75rem; /* More space from text */
-    height: auto; /* Auto height */
-    width: fit-content;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8rem; /* Slightly smaller font for badges */
+
+
+.badge:hover{
+
+    transform: scale(1.1,1.1);
+
 }
 
-.badge:hover {
-    transform: scale(1.05);
+
+
+/* nav */
+
+
+
+.sticky_nav{
+
+    position: sticky;
+
+    top: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 1rem;
+
+    padding-bottom: 1rem;
+
+    z-index: 1;
+
 }
 
-/* sticky nav */
-.sticky_nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0; /* Consistent vertical padding */
-    background-color: #121212;
-    z-index: 10; /* Ensure it stays on top of cards */
-    border-radius: 1rem; /* Match main content radius */
-    margin-bottom: 1rem; /* Space below sticky nav */
+.sticky_nav_icons{
+
+    margin-left: 0.75rem;
+
 }
 
-.sticky_nav_icons {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem; /* Consistent gap between icons */
+.sticky_nav_icons img{
+
+
+
+    padding-left: 1rem;
+
+    opacity: 0.7;
+
 }
 
-.sticky_nav_icons img {
-    height: 1.8rem; /* Slightly larger icons */
-    opacity: 0.7;
-    cursor: pointer;
+
+
+.sticky_nav_icons img:hover{
+
+    opacity: 1;
+
 }
 
-.sticky_nav_icons img:hover {
-    opacity: 1;
+
+
+.sticky_options{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+
+
+   
+
 }
 
-.sticky_options {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem; /* Space between buttons and icon */
+
+
+.sticky_options button{
+
+    margin-right: 0.95rem;
+
+    margin-bottom: 1rem;
+
+
+
 }
 
-.sticky_options button {
-    margin: 0; /* Reset default button margins */
-    padding: 0.75rem 1.25rem; /* Adjusted padding */
-    font-size: 0.9rem; /* Consistent font size */
+
+
+.sticky_options i{
+
+    margin-right: 1.2rem;
+
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+
 }
 
-.sticky_options i {
-    font-size: 1.5rem; /* Slightly larger icon */
-    margin: 0 0.5rem; /* Adjusted margin */
-    cursor: pointer;
-}
-.sticky_options i:hover {
-    transform: scale(1.05);
+.dark_badge{
+
+    background-color: black;
+
+    color: white;
+
 }
 
-.dark_badge {
-    background-color: black;
-    color: white;
-    border: 1px solid #878787;
+.a{
+
+    margin-left: 0.75rem;
+
+
+
 }
-.dark_badge:hover {
-    border-color: white;
+
+
+
+@media (max-width:1000px){
+
+    .sticky_nav_icons .forward{
+
+        opacity: 0;
+
+    }
+
+    .a{
+
+        opacity: 0;
+
+    }
+
 }
+
+
 
 /* cards */
-.crd,
-.title,
-.info {
-    background-color: #242424;
+
+ .crd,.title,.info{
+
+    background-color: #242424;
+
+ }
+
+ .main_cards{
+
+    padding: 1rem;
+
+ }
+
+
+
+ .card_container{
+
+    display: flex;
+
+    margin-top: 1.3rem;
+
+    flex-wrap: wrap;
+
+
+
+
+
+ }
+
+ .crd{
+
+    width: 150px;
+
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+
+    margin-left: 2rem;
+
+    margin-top: 1.1rem;
+
+
+
+ }
+
+ .crd p{
+
+    padding-top: 1.2rem;
+
+
+
+ }
+
+ .crd_img{
+
+    width: 100%;
+
+    border-radius: 0.5rem;
+
+ }
+
+ .title{
+
+    font-weight: 600;
+
+ }
+
+ .info{
+
+    font-size: 0.8rem;
+
+    opacity: 0.5;
+
+ }
+
+ .main_cards h2{
+
+    margin-top: 1.3rem;
+
+    margin-bottom: 1.2rem;
+
+ }
+
+ .footer{
+
+    height: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+ }
+
+
+
+ .line{
+
+    width: 90%;
+
+    height: 30%;
+
+    border-top: 1px solid white;
+
+    opacity: 0.4;
+
+ }
+
+
+
+ .music_player{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+
+
+ }
+
+ .album{
+
+    width: 25%;
+
+
+
+ }
+
+.player{
+
+    width: 50%;
+
+    background-color: darkcyan;
+
+
+
 }
 
-.main_cards {
-    padding-bottom: 6rem; /* Ensure content is above the music player */
+.controls{
+
+    width: 25%;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+
+
 }
 
-.card_container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem; /* Increased gap for better spacing */
-    justify-content: flex-start; /* Align cards to the start */
-    margin-bottom: 2rem; /* Space below each card row */
-}
+ .player-controls{
 
-.crd {
-    width: 170px; /* Fixed width for consistency on larger screens */
-    border-radius: 0.5rem;
-    padding: 1rem;
-    background-color: #242424;
-    box-sizing: border-box;
-    flex-shrink: 0; /* Prevent cards from shrinking */
-    display: flex; /* Use flex for content inside card */
-    flex-direction: column;
-}
+    display: flex;
 
-.crd p {
-    padding-top: 0.6rem; /* Adjusted padding */
-    margin: 0; /* Reset default p margin */
-}
+    justify-content: center;
 
-.crd_img {
-    width: 100%;
-    border-radius: 0.5rem;
-    aspect-ratio: 1/1; /* Ensure image is square */
-    object-fit: cover;
-}
+    align-items: center;
 
-.title {
-    font-weight: 600;
-    font-size: 1rem;
-    white-space: nowrap; /* Prevent title from wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if overflow */
-}
-
-.info {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-top: 0.25rem; /* Space from title */
-    display: -webkit-box; /* For multi-line ellipsis */
-    -webkit-line-clamp: 2; /* Limit to 2 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.main_cards h2 {
-    margin-top: 1.5rem; /* More space above headings */
-    margin-bottom: 1rem; /* More space below headings */
-    font-size: 1.5rem;
-}
-
-.footer {
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.line {
-    width: 90%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.4); /* Use background-color instead of border-top */
-    border: none;
-}
-
-/* Music Player */
-.music_player {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #181818;
-    color: white; /* Ensure text is white */
-}
-
-.album {
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.75rem; /* Space between album art and text */
-    background-color: #181818;
-}
-
-.player {
-    width: 50%;
-    background-color: #181818;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.controls {
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.75rem; /* Space between control icons */
-    background-color: #181818;
-}
-
-.player-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; /* Space between player control icons */
-    margin-bottom: 0.5rem;
-    background-color: #181818;
-}
-
-.player-control-icon {
-    height: 1.1rem; /* Standardized icon size */
-    opacity: 0.7;
-    cursor: pointer;
-    background-color: #181818;
-}
-
-.player-control-icon:hover {
-    opacity: 1;
-}
-
-.third {
-    height: 2rem; /* Larger play/pause button */
-    opacity: 1;
-}
-
-.playback-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 0.5rem; /* Space between time and progress bar */
-    background-color: #181818;
-}
-
-.progress-bar {
-    flex-grow: 1;
-    appearance: none;
-    background-color: transparent;
-    cursor: pointer;
-    height: 4px;
-}
-
-.progress-bar::-webkit-slider-runnable-track {
-    background-color: #4a4a4a;
-    border-radius: 100px;
-    height: 4px;
-}
-
-.progress-bar::-webkit-slider-thumb {
-    appearance: none;
-    background-color: #1bd760;
-    height: 12px;
-    width: 12px;
-    border-radius: 100%;
-    margin-top: -4px;
-    visibility: hidden; /* Hide thumb by default */
-    transition: visibility 0.2s ease-in-out;
-}
-.progress-bar:hover::-webkit-slider-thumb {
-    visibility: visible; /* Show thumb on hover */
-}
-
-.curr-time, .tot-time {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    background-color: #181818;
-}
-
-.album .k {
-    height: 3.2rem;
-    border-radius: 0.25rem;
-    object-fit: cover;
-    background-color: #181818;
-}
-
-.images {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Space between album icons */
-    background-color: #181818;
-    margin-left: 0.5rem; /* Space from album text */
-}
-
-.album_img {
-    height: 1.2rem;
-    opacity: 0.8;
-    background-color: #181818;
-}
-
-.album_imgs {
-    height: 1.8rem; /* Slightly larger heart icon */
-    opacity: 0.8;
-    background-color: #181818;
-}
-
-.album_song {
-    font-size: 0.9rem;
-    font-weight: 700;
-    opacity: 0.9;
-    background-color: #181818;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 120px; /* Limit width */
-}
-
-.album_author {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    background-color: #181818;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 120px; /* Limit width */
-}
-
-.para {
-    line-height: 1.3; /* Adjusted line height */
-    background-color: #181818;
-}
-
-.controls img {
-    height: 1.5rem; /* Standardized control icon sizes */
-    opacity: 0.7;
-    cursor: pointer;
-    background-color: #181818;
-}
-.controls img:hover {
-    opacity: 1;
-}
-
-.controls_mk {
-    width: 80px;
-    appearance: none;
-    background-color: transparent;
-    cursor: pointer;
-    height: 4px;
-}
-
-.controls_mk::-webkit-slider-runnable-track {
-    background-color: #4a4a4a;
-    border-radius: 100px;
-    height: 4px;
-}
-
-.controls_mk::-webkit-slider-thumb {
-    appearance: none;
-    background-color: #1bd760;
-    height: 12px;
-    width: 12px;
-    border-radius: 100%;
-    margin-top: -4px;
-    visibility: hidden; /* Hide thumb by default */
-    transition: visibility 0.2s ease-in-out;
-}
-.controls_mk:hover::-webkit-slider-thumb {
-    visibility: visible; /* Show thumb on hover */
 }
 
 
-/* --- Media Queries --- */
 
-/* For screens smaller than 1200px (e.g., larger tablets, small laptops) */
-@media (max-width: 1200px) {
-    .main .sidebar {
-        width: 280px; /* Reduce sidebar width */
-    }
+.player-control-icon{
 
-    .sticky_options button {
-        padding: 0.6rem 1rem;
-        font-size: 0.8rem;
-    }
-    .sticky_options i {
-        font-size: 1.3rem;
-    }
+    height: 1rem;
 
-    .card_container {
-        gap: 1rem; /* Reduce gap between cards */
-    }
+    margin-right: 1.75rem;
 
-    .crd {
-        width: 160px; /* Slightly smaller card width */
-    }
+    opacity: 0.7;
+
 }
 
-/* For screens smaller than 1000px (e.g., tablets in landscape, larger phones in landscape) */
-@media (max-width: 1000px) {
-    .sticky_nav_icons .forward {
-        display: none; /* Hide forward icon */
-    }
+.player-control-icon:hover{
 
-    .sticky_options .a {
-        display: none; /* Hide "Explore Premium" button */
-    }
+    opacity: 1;
 
-    .main .sidebar {
-        width: 75px; /* Make sidebar very narrow for icons */
-        align-items: center;
-        padding: 0.25rem; /* Reduced padding */
-    }
-
-    .nav_option a, .lib_options a {
-        display: none; /* Hide text in sidebar nav options */
-    }
-
-    .nav_option i, .lib_options img {
-        margin: 0; /* Remove margin from icons */
-        font-size: 1.4rem; /* Make icons slightly larger */
-    }
-
-    .nav_option {
-        padding: 0.5rem 0; /* Adjusted padding */
-        justify-content: center; /* Center icons */
-        width: 100%;
-    }
-
-    .nav {
-        padding: 0.5rem 0; /* Reduced padding */
-        justify-content: flex-start;
-        height: auto;
-    }
-
-    .lib {
-        padding: 0.5rem 0; /* Reduced padding */
-        align-items: center;
-        overflow-y: hidden; /* Hide overflow for library on smaller screens */
-        justify-content: flex-start; /* Align content to top */
-    }
-
-    .lib_options {
-        margin: 0;
-        justify-content: center; /* Center icons */
-        padding: 0.5rem 0;
-        width: 100%;
-    }
-    .lib_options img {
-        margin-right: 0; /* Remove margin from image */
-    }
-
-    .lib_box {
-        display: none; /* Hide library boxes to save space */
-    }
-
-    .icons {
-        margin-top: 0.5rem;
-        justify-content: center;
-        width: 100%; /* Take full width for centering */
-    }
-
-    .icons i {
-        margin: 0 0.5rem; /* Smaller margin for icons */
-    }
-
-    .main .main_content {
-        margin-left: 0.5rem; /* Reduce margin to sidebar */
-        border-radius: 0.5rem;
-        padding: 0.75rem; /* Reduced internal padding */
-    }
-
-    .sticky_options .dark_badge {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-    }
-
-    .card_container {
-        justify-content: center;
-        gap: 0.8rem; /* Tighter gap for more cards per row */
-    }
-
-    .crd {
-        width: 150px; /* Adjust card size */
-        padding: 0.8rem;
-    }
-
-    /* Music Player adjustments */
-    .music_player {
-        height: 85px; /* Slightly taller player to accommodate wrapping */
-        flex-wrap: wrap; /* Allow elements to wrap */
-        justify-content: center;
-        padding: 0.5rem;
-    }
-
-    .album {
-        width: 45%; /* Album takes more space */
-        justify-content: flex-start;
-        gap: 0.5rem;
-    }
-
-    .player {
-        order: 3; /* Move player controls to the bottom when wrapped */
-        width: 100%;
-        margin-top: 0.5rem; /* Space from above elements */
-        padding: 0; /* Reset internal padding */
-    }
-
-    .controls {
-        width: 45%; /* Controls take more space */
-        justify-content: flex-end;
-        gap: 0.5rem;
-    }
-
-    .player-controls {
-        margin-bottom: 0.3rem;
-        gap: 0.8rem; /* Smaller gap */
-    }
-
-    .album .k {
-        height: 2.8rem; /* Smaller album art */
-    }
-
-    .images {
-        display: none; /* Hide album icons on smaller screens */
-    }
-
-    .album_song, .album_author {
-        max-width: none; /* Remove max-width when icons are hidden */
-    }
-
-    .album_song {
-        font-size: 0.8rem;
-    }
-
-    .album_author {
-        font-size: 0.65rem;
-    }
-
-    .controls img {
-        height: 1.1rem; /* Smaller control icons */
-    }
-
-    .controls_mk {
-        width: 60px; /* Smaller volume slider */
-    }
 }
 
-/* For screens smaller than 768px (e.g., most mobile devices in landscape) */
-@media (max-width: 768px) {
-    .main {
-        flex-direction: column; /* Stack sidebar and main content vertically */
-        padding: 0.2rem;
-        height: calc(100vh - 85px); /* Adjust main height based on player height */
-        gap: 0.2rem;
-    }
+.third{
 
-    .main .sidebar {
-        width: 100%; /* Full width for sidebar */
-        height: auto;
-        flex-direction: row; /* Layout nav options horizontally */
-        justify-content: space-around;
-        padding: 0.5rem 0;
-        border-radius: 0.5rem;
-        margin-bottom: 0.2rem; /* Smaller margin below sidebar */
-    }
+    height: 2rem;
 
-    .nav_option {
-        padding: 0.3rem 0;
-        flex: 1;
-        text-align: center;
-        line-height: 1; /* Reset line height */
-    }
-    .nav_option i {
-        font-size: 1.2rem;
-    }
+    opacity: 1;
 
-    .lib {
-        display: none; /* Hide library section completely */
-    }
-
-    .main .main_content {
-        margin-left: 0;
-        border-radius: 0.5rem;
-        flex: none; /* Don't grow vertically */
-        height: auto; /* Let content dictate height, ensure scrolling */
-        min-height: calc(100% - 1rem); /* Make sure it takes vertical space */
-        padding: 0.5rem; /* Reduced padding */
-        overflow-y: auto; /* Ensure it scrolls */
-    }
-
-    .sticky_nav {
-        justify-content: space-between;
-        padding: 0.5rem;
-        flex-wrap: wrap;
-        border-radius: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .sticky_nav_icons {
-        margin-left: 0;
-        gap: 0.4rem;
-    }
-
-    .sticky_nav_icons img {
-        height: 1.5rem;
-    }
-
-    .sticky_options {
-        justify-content: flex-end;
-        flex-grow: 1;
-        gap: 0.4rem;
-    }
-
-    .sticky_options .dark_badge {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.75rem;
-    }
-
-    .sticky_options i {
-        font-size: 1.2rem;
-    }
-
-    .main_cards {
-        padding-bottom: 0; /* Remove padding here as main_content handles it */
-    }
-
-    .main_cards h2 {
-        margin-top: 1rem;
-        margin-bottom: 0.8rem;
-        font-size: 1.2rem;
-    }
-
-    .card_container {
-        justify-content: space-around; /* Distribute cards better */
-        gap: 0.7rem; /* Smaller gap */
-    }
-
-    .crd {
-        width: calc(50% - 0.7rem); /* Two cards per row, accounting for gap */
-        max-width: 160px; /* Prevent overly large cards */
-        padding: 0.7rem;
-    }
-    .crd p {
-        padding-top: 0.4rem;
-        font-size: 0.85rem;
-    }
-    .info {
-        font-size: 0.65rem;
-    }
-
-    .music_player {
-        flex-direction: column;
-        height: auto;
-        padding: 0.5rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .album, .player, .controls {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 0.3rem;
-    }
-
-    .album .k {
-        height: 2.5rem;
-    }
-
-    .album_song {
-        font-size: 0.8rem;
-    }
-    .album_author {
-        font-size: 0.65rem;
-    }
-
-    .player-controls {
-        margin-bottom: 0.2rem;
-        gap: 0.6rem;
-    }
-
-    .player-control-icon {
-        height: 1rem;
-    }
-    .third {
-        height: 1.6rem;
-    }
-
-    .curr-time, .tot-time {
-        font-size: 0.7rem;
-    }
-
-    .controls img {
-        height: 1rem;
-    }
-    .controls_mk {
-        width: 50px;
-    }
 }
 
-/* For screens smaller than 480px (e.g., portrait mobile devices) */
-@media (max-width: 480px) {
-    .main {
-        padding: 0.1rem;
-        height: calc(100vh - 75px); /* Adjusted for player height and overall smaller padding */
-    }
+.playback-bar{
 
-    .main .sidebar {
-        padding: 0.2rem 0;
-        border-radius: 0.3rem;
-    }
+    display: flex;
 
-    .nav_option {
-        padding: 0.2rem 0;
-    }
+    justify-content: center;
 
-    .nav_option i {
-        font-size: 1.1rem;
-    }
+    align-items: center;
 
-    .main .main_content {
-        border-radius: 0.3rem;
-        padding: 0.3rem;
-    }
-
-    .sticky_nav {
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        margin-bottom: 0.3rem;
-    }
-
-    .sticky_nav_icons img {
-        height: 1.2rem;
-    }
-
-    .sticky_options .dark_badge {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
-    }
-
-    .sticky_options i {
-        font-size: 1rem;
-    }
-
-    .main_cards h2 {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-    }
-
-    .card_container {
-        gap: 0.5rem;
-    }
-
-    .crd {
-        width: calc(50% - 0.5rem);
-        padding: 0.5rem;
-    }
-    .crd p {
-        padding-top: 0.3rem;
-        font-size: 0.8rem;
-    }
-    .info {
-        font-size: 0.6rem;
-    }
-
-    .music_player {
-        height: 75px; /* Fixed height for very small screens to prevent too much stacking */
-        padding: 0.3rem;
-    }
-
-    .album {
-        width: 40%;
-        justify-content: flex-start;
-    }
-    .album .k {
-        height: 2rem;
-    }
-    .album_song {
-        font-size: 0.7rem;
-    }
-    .album_author {
-        font-size: 0.55rem;
-    }
-
-    .player {
-        width: 60%; /* Player takes up more space */
-        order: 2; /* Move player controls next to album */
-        margin-top: 0; /* Remove top margin */
-    }
-
-    .player-controls {
-        margin-bottom: 0.1rem;
-        gap: 0.4rem;
-    }
-    .player-control-icon {
-        height: 0.9rem;
-    }
-    .third {
-        height: 1.4rem;
-    }
-    .playback-bar {
-        font-size: 0.65rem;
-    }
-
-    .controls {
-        display: none; /* Hide volume controls on very small screens to save space */
-    }
 }
+
+.progress-bar{
+
+    width: 70%;
+
+    appearance: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+}
+
+.progress-bar::-webkit-slider-runnable-track{
+
+    background-color: #ddd;
+
+    border-radius: 100px;
+
+    height: 0.20rem;
+
+
+
+}
+
+.progress-bar::-webkit-slider-thumb{
+
+    appearance: none;
+
+    background-color: #1bd760;
+
+    height:20px;
+
+    width: 20px;
+
+    border-radius: 100%;
+
+
+
+}
+
+.album{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.images{
+
+    display: flex;
+
+    align-items: center;
+
+    margin: 1.4rem;
+
+}
+
+.k{
+
+    margin: 1.4rem;
+
+    height: 3.2rem;
+
+}
+
+.album_img{
+
+    height: 1.3rem;
+
+    margin: 0.7rem;
+
+    opacity: 0.8;
+
+}
+
+.album_imgs{
+
+    height: 2rem;
+
+    opacity: 0.8;
+
+}
+
+.album_song{
+
+    font-size:0.9rem ;
+
+    font-weight: 700;
+
+    opacity: 0.9;
+
+}
+
+.album_author{
+
+    font-size: 0.75rem;
+
+    opacity: 0.7;
+
+}
+
+.para{
+
+    line-height: 1.3rem;
+
+    /* margin: 1.4rem; */
+
+
+
+}
+
+
+
+.imgo{
+
+    height: 2.3rem;
+
+    margin: 0.3rem;
+
+    opacity: 0.9;
+
+}
+
+.imgt{
+
+    height: 2.3rem;
+
+    margin: 0.3rem;
+
+    opacity: 0.9;
+
+}
+
+.imgh{
+
+    height: 1.3rem;
+
+    margin: 0.3rem;
+
+    opacity: 0.7;
+
+}
+
+
+
+.imgf{
+
+    height: 0.9rem;
+
+    margin: 0.3rem;
+
+    opacity: 0.7;
+
+}
+
+.imagei{
+
+    height: 2.4rem;
+
+    margin: 0.3rem;
+
+    opacity: 0.9;
+
+}
+
+
+
+.controls_mk{
+
+    width: 40%;
+
+    appearance: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+}
+
+.controls_mk::-webkit-slider-runnable-track{
+
+    background-color: #ddd;
+
+    border-radius: 100px;
+
+    height: 0.20rem;
+
+}
+
+.controls_mk::-webkit-slider-thumb{
+
+    appearance: none;
+
+    background-color: #1bd760;
+
+    height:20px;
+
+    width: 20px;
+
+    border-radius: 100%;
+
+} 
